@@ -36,5 +36,5 @@ module.exports.schemaRegister = Joi.object({
         .required(),
 
     confirmpassword: Joi.ref('password')
-        ,
+    
 }).with('password', 'confirmpassword');

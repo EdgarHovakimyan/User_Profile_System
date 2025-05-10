@@ -8,18 +8,47 @@
 {{>menuPerson}}
 {{/if}}
 
+<style>
+    .product-image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .product-detail {
+      margin-top: 20px;
+    }
+</style>
 
+<div class="container mt-5">
+  <h1 class="text-center mb-4 text-primary">Product Details</h1>
 
-<h1>product details</h1>
-{{#if products}}
-<h1>{{products.title}}</h1>
-{{#each products.images}}
-<img src="/{{image}}" width="100" alt="">
-{{/each}}
-<p>{{products.price}}</p>
-<p>{{products.manager.user.name}} {{products.manager.user.surname}}</p>
-{{else}}
+  {{#if products}}
+    <div class="product-detail">
+      <h2 class="text-success">{{products.title}}</h2>
 
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Images</h4>
+          <div class="d-flex">
+            {{#each products.images}}
+              <img src="/{{image}}" class="product-image" alt="product image">
+            {{/each}}
+          </div>
+        </div>
 
-<p> not found</p>
-{{/if}}
+        <div class="col-md-6">
+          <h4>Product Price</h4>
+          <p><strong>{{products.price}} AMD</strong></p>
+
+          <h4>Manager</h4>
+          <p>{{products.manager.user.name}} {{products.manager.user.surname}}</p>
+        </div>
+      </div>
+
+    </div>
+  {{else}}
+    <p class="alert alert-warning text-center">Product not found</p>
+  {{/if}}
+
+</div>

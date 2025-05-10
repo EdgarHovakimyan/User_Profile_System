@@ -7,22 +7,24 @@
 {{#if person}}
     {{>menuPerson}}
 {{/if}}
-<h1>categories</h1>
-<table border="2">
-    <thead>
+<div class="container mt-5">
+    <h1 class="mb-4">Categories</h1>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
         <tr>
             <th>Name</th>
             <th>Image</th>
-            <th>See</th>
+            <th>View</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         {{#each categories}}
             <tr>
-                <td>{{name}}</td>
-                <td><img src="/{{image}}" width="100" alt=""></td>
-                <td><a href="/user/category/{{id}}">see</a></td>
+            <td>{{name}}</td>
+            <td><img src="/{{image}}" class="img-thumbnail" width="100" alt=""></td>
+            <td><a href="/user/category/{{id}}" class="btn btn-info btn-sm">View</a></td>
             </tr>
         {{/each}}
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>

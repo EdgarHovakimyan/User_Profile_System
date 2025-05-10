@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 module.exports = (sequelize) => {
   const Wishlist = sequelize.define('wishlist', {
-    personId: {
+    userId: {
       type: Sequelize.INTEGER,
       primaryKey: true,
     },

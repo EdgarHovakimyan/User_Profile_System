@@ -1,15 +1,44 @@
 {{>menuManager}}
-<h1>add product</h1>
-<form action="/manager/addProduct" method="post" enctype="multipart/form-data">
-<select name="categoryId" id="">
-    {{#each categories }}
-    <option value="{{id}}">{{name}}</option>
-    {{/each}}
-</select>
-    <input type="text" name="title" placeholder="name">
-    <input type="text" name="description" placeholder="description">
-    <input type="number" name="price" placeholder="price">
-    <input type="number" name="count" placeholder="count">
-    <input type="file" name="images" multiple>
-    <button>save</button>
-</form>
+
+<div class="container mt-5">
+  <h2>Add Product</h2>
+  <form action="/manager/addProduct" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label for="categoryId" class="form-label">Category</label>
+      <select name="categoryId" class="form-select" id="categoryId" required>
+        {{#each categories }}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Product Name</label>
+      <input type="text" class="form-control" name="title" placeholder="Enter product name" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" class="form-control" name="description" placeholder="Enter product description" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" name="price" placeholder="Enter price" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="count" class="form-label">Quantity</label>
+      <input type="number" class="form-control" name="count" placeholder="Enter quantity" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="images" class="form-label">Images</label>
+      <input type="file" class="form-control" name="images" multiple required>
+      <small class="form-text text-muted">Choose images to be displayed with the product:</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>

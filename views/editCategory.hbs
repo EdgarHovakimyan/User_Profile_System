@@ -1,6 +1,13 @@
 {{>menuAdmin}}
-<h1>edit categories</h1>
-<form action="/admin/updateCategory/{{category.id}}" method="post">
-    <input type="text" value="{{category.name}}" name="name">
-    <button>update</button>
-</form>
+<div class="container mt-5">
+    <h1 class="mb-4">Category Information</h1>
+    
+    <form action="/admin/updateCategory/{{category.id}}" method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Category Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{category.name}}" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update Category</button>
+    </form>
+</div>

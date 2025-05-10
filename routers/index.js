@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { MainController } = require('../controller/MainController');
+const { MainController } = require('../controllers/MainController');
 const passport = require('passport');
-const { User } = require('../model');
+const { User } = require('../models');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require("bcrypt")
 

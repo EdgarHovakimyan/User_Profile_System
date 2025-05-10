@@ -1,2 +1,60 @@
 {{>menuAdmin}}
 <h1>users</h1>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4" style="color: #ff6f61;">Users</h1>
+    <div class="row">
+        {{#each users}}
+        <div class="container mt-5">
+            <div class="card" style="width: 18rem;">
+                <img src="/{{image}}" class="card-img-top rounded-circle profile-img" alt="User Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}} {{surname}}</h5>
+                    <p class="card-text">{{age}} years old</p>
+                    <p class="card-text">{{email}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f1f1f1;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+    }
+
+    .card-body {
+        border-radius: 10px;
+    }
+
+    .card-img-top {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .btn-danger {
+        background-color: #ff6f61;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #e65c4a;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .card-text {
+        color: #777;
+        font-size: 14px;
+    }
+</style>
+

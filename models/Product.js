@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
 module.exports = (sequelize) => {
-   
   const Product = sequelize.define('product', {
     title: Sequelize.STRING,
     description: Sequelize.STRING,

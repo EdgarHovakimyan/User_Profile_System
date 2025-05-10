@@ -1,38 +1,49 @@
 {{>menuManager}}
-<h1>my products</h1>
+<style>
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+</style>
 
-<table border="2">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Count</th>
-            <th>images</th>
-            <th>ManagerId</th>
-            <th>CategoryId</th>
-            <th>edit</th>
-            <th>Delete</th>
-        </tr>
+<div class="container mt-5">
+  <h1 class="mb-4 text-center text-primary">My Products</h1>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-light">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Images</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
     </thead>
     <tbody>
-        {{#each products}}
+      {{#each products}}
         <tr>
-            <td>{{title}}</td>
-            <td>{{description}}</td>
-            <td>{{price}}</td>
-            <td>{{count}}</td>
-            <td>
-                {{#each images}}
-                <img src="/{{image}}" alt="" width="100">
-                <a href="/manager/deleteProductImage/{{id}}">delete</a>
-                {{/each}}
-            </td>
-            <td>{{managerId}}</td>
-            <td>{{categoryId}}</td>
-            <td><a href="/manager/editProduct/{{id}}">edit</a></td>
-            <td><a href="/manager/deleteProduct/{{id}}">delete</a></td>
+          <td>{{title}}</td>
+          <td>{{description}}</td>
+          <td>{{price}} AMD</td>
+          <td>{{count}}</td>
+          <td>
+            {{#each images}}
+              <img src="/{{image}}" class="product-image" alt="product-image">
+              <br>
+              <a href="/manager/deleteProductImage/{{id}}" class="btn btn-danger btn-sm mt-2">Delete</a>
+            {{/each}}
+          </td>
+          <td>
+            <a href="/manager/editProduct/{{id}}" class="btn btn-warning btn-sm">Edit</a>
+          </td>
+          <td>
+            <a href="/manager/deleteProduct/{{id}}" class="btn btn-danger btn-sm">Delete</a>
+          </td>
         </tr>
-        {{/each}}
+      {{/each}}
     </tbody>
-</table>
+  </table>
+</div>

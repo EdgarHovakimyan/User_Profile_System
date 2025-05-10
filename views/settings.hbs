@@ -7,9 +7,51 @@
 {{#if person}}
     {{>menuPerson}}
 {{/if}}
-<h1>settings</h1>
-<h2>upload image</h2>
-<form action="/user/uploadFile" method="post" enctype="multipart/form-data">
-    <input type="file" name='avatar'>
-    <button>upload</button>
-</form>
+<h1 class="text-center mt-5">Settings</h1>
+
+<h2 class="text-center my-4">Upload Profile Image</h2>
+
+<div class="container d-flex justify-content-center">
+  <div class="card shadow-lg" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-4">Change Avatar</h5>
+      <form action="/user/uploadUserFile" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="avatar" class="form-label">Choose an image to upload</label>
+          <input type="file" name="avatar" id="avatar" class="form-control" required>
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" value="{{user.name}}" required>
+          <label for="surname" class="form-label">Surname</label>
+          <input type="text" class="form-control" id="surname" name="surname" value="{{user.surname}}" required>
+          <label for="age" class="form-label">Age</label>
+          <input type="number" class="form-control" id="age" name="age" value="{{user.age}}" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Upload</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .card-body {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  h1, h2 {
+    color: #5A5A5A;
+  }
+
+  button {
+    font-size: 16px;
+  }
+</style>

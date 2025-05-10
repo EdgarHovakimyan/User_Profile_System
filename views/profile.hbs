@@ -7,6 +7,45 @@
 {{#if person}}
     {{>menuPerson}}
 {{/if}}
-<h1>profile</h1>
-<h1>{{user.name}} {{user.surname}}</h1>
-<p>{{user.email}}</p>
+
+<div class="container mt-5">
+  <div class="card" style="width: 18rem;">
+    <img src="/{{user.image}}" class="card-img-top rounded-circle profile-img" alt="Profile Picture">
+    <div class="card-body">
+      <h5 class="card-title">{{user.name}} {{user.surname}}</h5>
+      <p class="card-text">{{user.age}} years old</p>
+      <p class="card-text">{{user.email}}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .profile-img {
+    transition: transform 0.3s ease-in-out;
+  }
+  .profile-img:hover {
+    transform: scale(1.15);
+  }
+</style>
+
+
+<div id="carouselExampleControls" class="carousel slide mt-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {{#each product}}
+      <div class="carousel-item {{#if @first}}active{{/if}}">
+        <h1 class="text-center">{{p.name}}</h1>
+        {{#each images}}
+          <img src="/{{image}}" alt="Product image" class="d-block w-100">
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

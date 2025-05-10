@@ -7,4 +7,22 @@
 {{#if person}}
     {{>menuPerson}}
 {{/if}}
-<h1>category details</h1>
+
+<div class="container mt-5">
+  <h3 class="mt-4 mb-3">Available Products</h3>
+
+  <div class="row">
+    {{#each products}}
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="/{{this.image}}" class="card-img-top" alt="{{this.title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <a href="/user/product/{{id}}" class="btn btn-primary">View Product</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

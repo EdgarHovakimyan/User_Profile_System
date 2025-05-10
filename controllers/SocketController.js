@@ -1,4 +1,4 @@
-const { Chat } = require("../model");
+const { Chat } = require("../models");
 const { Op } = require("sequelize");
 class SocketController {
   constructor(io) {
@@ -15,6 +15,7 @@ class SocketController {
     console.log(id);
     this.socket.join(id);
   }
+  
   async sendNewMessage(data) {
     //{fromId, toId, text}
     console.log("sendNewMessage");
@@ -32,6 +33,7 @@ class SocketController {
     this.socket.emit("sendMessage", arr);
     this.socket.broadcast.emit("sendMessage", arr);
   }
+
   async getMessage(data) {
    // {fromId, toId}
    console.log(data);

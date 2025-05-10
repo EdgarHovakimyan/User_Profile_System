@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
 module.exports = (sequelize) => {
-   
   const User = sequelize.define('user', {
     name: Sequelize.STRING,
     surname: Sequelize.STRING,
@@ -14,6 +13,3 @@ module.exports = (sequelize) => {
   });
   return User;
 };
-
-
- //0-user, 1-manager, 2-admin

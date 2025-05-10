@@ -10,19 +10,70 @@
 
 
 <div class="container mt-5">
-<h1>Wishlist</h1>
-<div class="row">
-    {{#each items}}
-    <div class="col-md-4">
-        <div class="card mb-4">
-        <div class="card-body">
-            <h5 class="card-title">{{items.name}}</h5>
-            <p class="card-text">{{items.description}}</p>
-            <a href="{{link}}" class="btn btn-primary" target="_blank">View Item</a>
+    <h1 class="text-center mb-4" style="color: #ff6f61;">Wishlist</h1>
+    <div class="row">
+        {{#each arr}}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm" style="border-radius: 10px;">
+                {{#each product.images}}
+                    <img  src="/{{image}}" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
+                {{/each}}
+    
+                <div class="card-body" style="background-color: #f9f9f9; border-radius: 10px;">
+                    <h5 class="card-title" style="color: #333;">{{product.name}}</h5>
+                    <p class="card-text text-muted" style="font-size: 14px;">{{product.description}}</p>
+                    
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <div>
+                            {{#each product.images}}
+                                <img src="/{{image}}" alt="" width="50" class="rounded-circle">
+                            {{/each}}
+                        </div>
+                        <a href="/user/addToCart/{{product.id}}" class="btn btn-danger btn-sm" style="font-size: 14px;">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
+        {{/each}}
     </div>
-    {{/each}}
 </div>
-</div>
+
+<style>
+    body {
+        background-color: #f1f1f1;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+    }
+
+    .card-body {
+        border-radius: 10px;
+    }
+
+    .card-img-top {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .btn-danger {
+        background-color: #ff6f61;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #e65c4a;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .card-text {
+        color: #777;
+        font-size: 14px;
+    }
+</style>
 

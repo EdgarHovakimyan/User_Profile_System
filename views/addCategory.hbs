@@ -1,7 +1,15 @@
 {{>menuAdmin}}
-<h1>add category</h1>
-<form action="/admin/addCategory" method="post" enctype="multipart/form-data">
-    <input type="text" name="name" placeholder="name">
-    <input type="file" name="image">
-    <button>save</button>
-</form>
+<div class="container mt-5">
+  <h2>Add New Category</h2>
+  <form action="/admin/addCategory" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="categoryName" class="form-label">Category Name</label>
+      <input type="text" class="form-control" name="name" id="categoryName" placeholder="Enter the name of the new category" required>
+    </div>
+    <div class="mb-3">
+      <label for="categoryImage" class="form-label">Image for the Category</label>
+      <input type="file" name="image" class="form-control" id="categoryImage" accept="image/*" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Category</button>
+  </form>
+</div>

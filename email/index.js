@@ -1,23 +1,28 @@
-// fdwx xmjw oosx jkbj
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
-    user: 'edohovakimyan555@gmail.com',
-    pass: 'fdwx xmjw oosx jkbj',
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
 
-module.exports.sendEmail = (to, subject, html) => {
-  const obj = {
-    from: 'edohovakimyan555@gmail.com',
+module.exports.sendEmail = ({ to, subject, html }) => {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
     to,
     subject,
     html,
   };
-  transporter.sendMail(obj, function (err, data) {
-    if (err) err;
-    console.log(data);
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
   });
 };
+
