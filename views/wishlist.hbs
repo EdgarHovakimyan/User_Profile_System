@@ -1,0 +1,28 @@
+ {{#if admin}}
+    {{>menuAdmin}}
+{{/if}}
+{{#if manager}}
+    {{>menuManager}}
+{{/if}}
+{{#if person}}
+    {{>menuPerson}}
+{{/if}}
+
+
+<div class="container mt-5">
+<h1>Wishlist</h1>
+<div class="row">
+    {{#each items}}
+    <div class="col-md-4">
+        <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">{{items.name}}</h5>
+            <p class="card-text">{{items.description}}</p>
+            <a href="{{link}}" class="btn btn-primary" target="_blank">View Item</a>
+        </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+</div>
+

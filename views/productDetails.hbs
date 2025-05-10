@@ -1,0 +1,25 @@
+{{#if admin}}
+{{>menuAdmin}}
+{{/if}}
+{{#if manager}}
+{{>menuManager}}
+{{/if}}
+{{#if person}}
+{{>menuPerson}}
+{{/if}}
+
+
+
+<h1>product details</h1>
+{{#if products}}
+<h1>{{products.title}}</h1>
+{{#each products.images}}
+<img src="/{{image}}" width="100" alt="">
+{{/each}}
+<p>{{products.price}}</p>
+<p>{{products.manager.user.name}} {{products.manager.user.surname}}</p>
+{{else}}
+
+
+<p> not found</p>
+{{/if}}

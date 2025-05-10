@@ -1,0 +1,15 @@
+{{>menuManager}}
+<h1>add product</h1>
+<form action="/manager/addProduct" method="post" enctype="multipart/form-data">
+<select name="categoryId" id="">
+    {{#each categories }}
+    <option value="{{id}}">{{name}}</option>
+    {{/each}}
+</select>
+    <input type="text" name="title" placeholder="name">
+    <input type="text" name="description" placeholder="description">
+    <input type="number" name="price" placeholder="price">
+    <input type="number" name="count" placeholder="count">
+    <input type="file" name="images" multiple>
+    <button>save</button>
+</form>

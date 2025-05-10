@@ -1,0 +1,22 @@
+{{>menuAdmin}}
+<h1>admin categories</h1>
+<table border="2">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each categories}}
+            <tr>
+                <td>{{name}}</td>
+                <td><img src="/{{image}}" width="100" alt=""></td>
+                <td><a href="/admin/editCategory/{{id}}">edit</a></td>
+                <td><a href="/admin/deleteCategory/{{id}}">delete</a></td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

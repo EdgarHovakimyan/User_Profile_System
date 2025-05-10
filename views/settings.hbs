@@ -1,0 +1,15 @@
+{{#if admin}}
+    {{>menuAdmin}}
+{{/if}}
+{{#if manager}}
+    {{>menuManager}}
+{{/if}}
+{{#if person}}
+    {{>menuPerson}}
+{{/if}}
+<h1>settings</h1>
+<h2>upload image</h2>
+<form action="/user/uploadFile" method="post" enctype="multipart/form-data">
+    <input type="file" name='avatar'>
+    <button>upload</button>
+</form>

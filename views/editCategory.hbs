@@ -1,0 +1,6 @@
+{{>menuAdmin}}
+<h1>edit categories</h1>
+<form action="/admin/updateCategory/{{category.id}}" method="post">
+    <input type="text" value="{{category.name}}" name="name">
+    <button>update</button>
+</form>

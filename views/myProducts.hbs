@@ -1,0 +1,38 @@
+{{>menuManager}}
+<h1>my products</h1>
+
+<table border="2">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>images</th>
+            <th>ManagerId</th>
+            <th>CategoryId</th>
+            <th>edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td>{{price}}</td>
+            <td>{{count}}</td>
+            <td>
+                {{#each images}}
+                <img src="/{{image}}" alt="" width="100">
+                <a href="/manager/deleteProductImage/{{id}}">delete</a>
+                {{/each}}
+            </td>
+            <td>{{managerId}}</td>
+            <td>{{categoryId}}</td>
+            <td><a href="/manager/editProduct/{{id}}">edit</a></td>
+            <td><a href="/manager/deleteProduct/{{id}}">delete</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
